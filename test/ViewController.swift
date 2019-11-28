@@ -34,6 +34,8 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
+    
+    // Data Source
     // 섹션이 몇개인지 설정해주는 함수
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -62,8 +64,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+    
+    // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        
+        let alertController = UIAlertController(title: "alert", message: "경고창이 열렸습니다", preferredStyle: .actionSheet)
+        
+       let detailAction = UIAlertAction(title: "자세히보기", style: .default) { (_) in
+            print("버튼 눌려짐")
+        }
+        let cancelAction = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
+        
+        alertController.addAction(detailAction)
+        alertController.addAction(cancelAction)
+        
+        
+        
+        
+        present(alertController, animated: true, completion: nil)
+        
+        
     }
     
     

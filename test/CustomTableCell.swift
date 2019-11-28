@@ -11,7 +11,12 @@ import UIKit
 class CustomTableCell: UITableViewCell {
 
     
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var imgView: UIImageView! {
+        didSet{
+//            imgView.layer.cornerRadius = 40
+//            imgView.clipsToBounds = true
+        }
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     
