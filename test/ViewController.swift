@@ -70,7 +70,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         let alertController = UIAlertController(title: "alert", message: "경고창이 열렸습니다", preferredStyle: .actionSheet)
         
-       let detailAction = UIAlertAction(title: "자세히보기", style: .default) { (_) in
+        let detailAction = UIAlertAction(title: "자세히보기", style: .default) { (_) in
             print("버튼 눌려짐")
         }
         let cancelAction = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
@@ -86,7 +86,33 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let checkAction = UIContextualAction(style: .normal, title: "체크") { (action, sourceview, completionhandler) in
+            completionhandler(true)
+        }
+        let swipeConfig = UISwipeActionsConfiguration(actions: [checkAction])
+        return swipeConfig
+    }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제하기") { (action, sourceview, completionhandler) in
+            completionhandler(true)
+        }
+        let shareAction = UIContextualAction(style: .normal, title: "공유하기") { (action, sourceview, completionhandler) in
+            completionhandler(true)
+        }
+        
+        deleteAction.backgroundColor = .cyan
+        shareAction.backgroundColor = .blue
+        
+        deleteAction.image = UIImage(systemName: "trash")
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
+       let swipeConfig =  UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        
+        return swipeConfig
+    }
 }
 
 
