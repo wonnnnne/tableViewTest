@@ -1,0 +1,6 @@
+framework module Pods_UserService_MOYA__UserService_MOYA_UITests {
+  umbrella header "Pods-UserService(MOYA)-UserService(MOYA)UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

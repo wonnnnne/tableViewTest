@@ -1,0 +1,6 @@
+framework module Pods_JsonCRUD {
+  umbrella header "Pods-JsonCRUD-umbrella.h"
+
+  export *
+  module * { export * }
+}
